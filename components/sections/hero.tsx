@@ -5,11 +5,13 @@ import { ArrowRight, Mail, Download } from "lucide-react"
 
 export function Hero() {
   const scrollToProjects = () => {
-    document.getElementById("proyectos")?.scrollIntoView({ behavior: "smooth" })
+    const el = document.getElementById("proyectos")
+    if (el) el.scrollIntoView({ behavior: "smooth" })
   }
 
   const scrollToContact = () => {
-    document.getElementById("contacto")?.scrollIntoView({ behavior: "smooth" })
+    const el = document.getElementById("contacto")
+    if (el) el.scrollIntoView({ behavior: "smooth" })
   }
 
   return (
@@ -20,30 +22,30 @@ export function Hero() {
       {/* Radial cyan glow behind the name */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[600px] bg-[radial-gradient(ellipse_at_center,rgba(6,182,212,0.12)_0%,rgba(6,182,212,0.05)_30%,transparent_70%)] blur-3xl pointer-events-none" />
       
-      {/* Secondary subtle glow */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(6,182,212,0.04)_0%,transparent_60%)]" />
-      
       {/* Content */}
       <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
         <div className="space-y-8">
           {/* Subtle label */}
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-border/50 bg-secondary/30 backdrop-blur-sm">
-            <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-            <span className="text-sm text-muted-foreground">Disponible para proyectos</span>
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-border/50 bg-secondary/30 backdrop-blur-sm shadow-inner shadow-white/5">
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+            </span>
+            <span className="text-sm text-muted-foreground font-medium">Disponible para proyectos</span>
           </div>
 
           {/* Main heading */}
           <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight text-balance">
             <span className="text-foreground">Axel Yull</span>
             <br />
-            <span className="bg-gradient-to-r from-primary via-cyan-400 to-primary bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-primary via-cyan-400 to-primary bg-clip-text text-transparent drop-shadow-sm">
               Huatuco Bravo
             </span>
           </h1>
 
           {/* Subtitle */}
           <p className="text-lg sm:text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto leading-relaxed text-pretty">
-            Desarrollador de Software. Arquitecturas robustas, PWA y soluciones escalables.
+            Desarrollador de Software especializado en crear sistemas a medida y soluciones web escalables.
           </p>
 
           {/* CTA Buttons */}
@@ -51,27 +53,29 @@ export function Hero() {
             <Button 
               size="lg" 
               onClick={scrollToProjects}
-              className="group bg-primary text-primary-foreground hover:bg-primary/90 transition-all duration-300 hover:shadow-lg hover:shadow-primary/25"
+              className="group bg-primary text-primary-foreground hover:bg-primary/90 transition-all duration-300 hover:shadow-lg hover:shadow-primary/40 hover:-translate-y-1"
             >
               Explorar Proyectos
               <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
             </Button>
+
+            {/* CORRECCIÓN: Forzamos el texto blanco (text-foreground) y que se ponga cian en el hover */}
             <Button 
               size="lg" 
-              variant="outline"
               onClick={scrollToContact}
-              className="group border-border/50 bg-secondary/30 backdrop-blur-sm hover:bg-secondary/50 hover:border-primary/50 transition-all duration-300"
+              className="group border border-border/50 bg-secondary/20 text-foreground hover:bg-primary/10 hover:border-primary/50 hover:text-primary transition-all duration-300 hover:-translate-y-1"
             >
-              <Mail className="mr-2 h-4 w-4" />
+              <Mail className="mr-2 h-4 w-4 transition-transform group-hover:scale-110" />
               Contactar
             </Button>
+
+            {/* Hice lo mismo con el CV para asegurar que no falle */}
             <Button 
               size="lg" 
-              variant="ghost"
               asChild
-              className="group border border-border/30 hover:border-primary/40 hover:bg-primary/5 transition-all duration-300"
+              className="group border border-border/30 bg-transparent text-foreground hover:border-primary/40 hover:bg-primary/5 hover:text-primary transition-all duration-300 hover:-translate-y-1"
             >
-              <a href="/cv.pdf" download>
+              <a href="/cv.pdf" download="CV_Axel_Huatuco.pdf">
                 <Download className="mr-2 h-4 w-4 transition-transform group-hover:-translate-y-0.5" />
                 Descargar CV
               </a>
