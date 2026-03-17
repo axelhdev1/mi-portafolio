@@ -67,7 +67,7 @@ export function About() {
                         Soy un desarrollador Full Stack al que le gusta resolver problemas reales con código. Me dedico a construir sistemas a medida y plataformas de gestión que las empresas realmente necesitan usar en su día a día.
                       </p>
                       <p className="text-foreground/90">
-                        Trabajo conectando un backend sólido (Java, Spring Boot) con interfaces limpias en el frontend (Angular). Mi objetivo siempre es el mismo: entregar aplicaciones rápidas, seguras y que estén listas para crecer junto con el negocio, sin dar dolores de cabeza.
+                        Mi objetivo siempre es el mismo: entregar aplicaciones rápidas, seguras y que estén listas para crecer junto con el negocio, sin dar dolores de cabeza.
                       </p>
                     </div>
                     
