@@ -2,6 +2,7 @@
 
 const technologies = [
   "Angular",
+   "React",
   "Spring Boot", 
   "PostgreSQL",
   "Microsoft Azure",
