@@ -10,31 +10,21 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip"
 import { MapPin, Briefcase, Layers, Database, Cloud } from "lucide-react"
-import {
-  AngularIcon,
-  SpringBootIcon,
-  JavaIcon,
-  PostgreSQLIcon,
-  AzureIcon,
-  OracleIcon,
-  HTMLIcon,
-  CSSIcon,
-  TailwindIcon,
-} from "@/components/ui/tech-icons"
 
+// Usamos las URLs de los logos oficiales en alta resolución (SVG)
 const frontendTech = [
-  { name: "Angular", icon: AngularIcon, tooltip: "Framework principal para frontend" },
-  { name: "HTML5", icon: HTMLIcon, tooltip: "Estructura semántica moderna" },
-  { name: "CSS3", icon: CSSIcon, tooltip: "Estilos avanzados y animaciones" },
-  { name: "Tailwind CSS", icon: TailwindIcon, tooltip: "Utility-first CSS framework" },
+  { name: "Angular", iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/angular/angular-original.svg", tooltip: "Framework principal para frontend" },
+  { name: "HTML5", iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg", tooltip: "Estructura semántica moderna" },
+  { name: "CSS3", iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg", tooltip: "Estilos avanzados y animaciones" },
+  { name: "Tailwind CSS", iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg", tooltip: "Utility-first CSS framework" },
 ]
 
 const backendTech = [
-  { name: "Spring Boot", icon: SpringBootIcon, tooltip: "Arquitectura de microservicios" },
-  { name: "Java", icon: JavaIcon, tooltip: "Lenguaje principal de backend" },
-  { name: "PostgreSQL", icon: PostgreSQLIcon, tooltip: "Base de datos relacional" },
-  { name: "Oracle Linux", icon: OracleIcon, tooltip: "Sistema operativo empresarial" },
-  { name: "Microsoft Azure", icon: AzureIcon, tooltip: "Plataforma cloud principal" },
+  { name: "Spring Boot", iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/spring/spring-original.svg", tooltip: "Arquitectura de microservicios" },
+  { name: "Java", iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg", tooltip: "Lenguaje principal de backend" },
+  { name: "PostgreSQL", iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg", tooltip: "Base de datos relacional" },
+  { name: "Oracle Linux", iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/oracle/oracle-original.svg", tooltip: "Sistema operativo empresarial" },
+  { name: "Microsoft Azure", iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/azure/azure-original.svg", tooltip: "Plataforma cloud principal" },
 ]
 
 export function About() {
@@ -72,15 +62,16 @@ export function About() {
                     <p className="text-muted-foreground">
                       <span className="text-green-400">$</span> cat perfil.txt
                     </p>
-                    <div className="pl-4 border-l-2 border-primary/30">
+                    <div className="pl-4 border-l-2 border-primary/30 space-y-3">
                       <p className="text-foreground/90">
-                        Estudiante de Desarrollo de Software en el Instituto Superior SISE. 
-                        Apasionado por el sector Fintech y comprometido con las buenas prácticas ITIL 
-                        para entregar soluciones de alta calidad.
+                        Soy un desarrollador Full Stack al que le gusta resolver problemas reales con código. Me dedico a construir sistemas a medida y plataformas de gestión que las empresas realmente necesitan usar en su día a día.
+                      </p>
+                      <p className="text-foreground/90">
+                        Trabajo conectando un backend sólido (Java, Spring Boot) con interfaces limpias en el frontend (Angular). Mi objetivo siempre es el mismo: entregar aplicaciones rápidas, seguras y que estén listas para crecer junto con el negocio, sin dar dolores de cabeza.
                       </p>
                     </div>
                     
-                    <p className="text-muted-foreground mt-4">
+                    <p className="text-muted-foreground mt-6">
                       <span className="text-green-400">$</span> echo $UBICACION $SECTOR
                     </p>
                     <div className="flex flex-wrap gap-4 text-foreground/80 pl-4">
@@ -90,13 +81,13 @@ export function About() {
                       </div>
                       <div className="flex items-center gap-2">
                         <Briefcase className="h-4 w-4 text-primary" />
-                        <span>Fintech & Enterprise</span>
+                        <span>Desarrollo de Software & Soluciones B2B</span>
                       </div>
                     </div>
                     
-                    <p className="text-muted-foreground flex items-center gap-1">
+                    <p className="text-muted-foreground flex items-center gap-1 mt-4">
                       <span className="text-green-400">$</span> 
-                      <span className="w-2 h-4 bg-primary animate-blink" />
+                      <span className="w-2 h-4 bg-primary animate-pulse" />
                     </p>
                   </div>
                 </CardContent>
@@ -123,9 +114,9 @@ export function About() {
                         <TooltipTrigger asChild>
                           <Badge 
                             variant="secondary"
-                            className="px-3 py-1.5 bg-secondary/50 hover:bg-primary/20 hover:border-primary/30 border border-border/50 transition-all duration-300 cursor-default"
+                            className="px-3 py-1.5 bg-secondary/50 hover:bg-primary/20 hover:border-primary/30 border border-border/50 transition-all duration-300 cursor-default flex items-center"
                           >
-                            <tech.icon className="w-4 h-4 mr-1.5" />
+                            <img src={tech.iconUrl} alt={`Logo de ${tech.name}`} className="w-4 h-4 mr-1.5 drop-shadow-sm" />
                             {tech.name}
                           </Badge>
                         </TooltipTrigger>
@@ -159,9 +150,9 @@ export function About() {
                         <TooltipTrigger asChild>
                           <Badge 
                             variant="secondary"
-                            className="px-3 py-1.5 bg-secondary/50 hover:bg-primary/20 hover:border-primary/30 border border-border/50 transition-all duration-300 cursor-default"
+                            className="px-3 py-1.5 bg-secondary/50 hover:bg-primary/20 hover:border-primary/30 border border-border/50 transition-all duration-300 cursor-default flex items-center"
                           >
-                            <tech.icon className="w-4 h-4 mr-1.5" />
+                            <img src={tech.iconUrl} alt={`Logo de ${tech.name}`} className="w-4 h-4 mr-1.5 drop-shadow-sm" />
                             {tech.name}
                           </Badge>
                         </TooltipTrigger>
